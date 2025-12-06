@@ -20,7 +20,7 @@ const Footer: React.FC = () => {
         <h3 className="text-lg font-bold text-white mb-6">천안청소년국악관현악단</h3>
         
         <div className="flex justify-center gap-6 mb-8">
-           <a href="tel:010-1234-5678" className="flex flex-col items-center gap-2 group cursor-pointer">
+           <a href="tel:041-557-0924" className="flex flex-col items-center gap-2 group cursor-pointer">
              <div className="w-12 h-12 rounded-full border border-hanji/20 flex items-center justify-center group-hover:bg-gold group-hover:border-gold group-hover:text-navy transition-all">
                <Phone size={20} />
              </div>
