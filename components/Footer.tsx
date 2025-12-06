@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
         </div>
 
         <p className="text-xs font-light">
-          Copyright © 2024 Cheonan Youth Traditional Music Orchestra. All rights reserved.
+          Copyright © 2025 Cheonan Youth Traditional Music Orchestra. All rights reserved.
         </p>
       </div>
     </footer>
