@@ -25,7 +25,7 @@ const generateMembers = (): Member[] => {
     { name: '가야금', count: 12, role: '단원' },
     { name: '거문고', count: 6, role: '단원' },
     { name: '대금/소금', count: 8, role: '단원' },
-    { name: '해금/아쟁', count: 10, role: '단원' }, // Merged as requested
+    { name: '해금/아쟁', count: 10, role: '단원' }, 
     { name: '타악', count: 8, role: '단원' }
   ];
 
@@ -39,7 +39,8 @@ const generateMembers = (): Member[] => {
     part: "지휘자/지도위원",
     role: "지휘자",
     resolution: "천안 청소년들의 꿈과 희망을 우리 소리에 담아 세계로 나아가겠습니다.",
-    image: "https://picsum.photos/id/64/300/300" // Specific image for conductor
+    // Point to generated SVG
+    image: "/img/profile_conductor.svg"
   });
 
   parts.forEach(part => {
@@ -53,13 +54,17 @@ const generateMembers = (): Member[] => {
         role = '수석';
       }
 
+      // Cycle through 2 generated placeholder SVGs
+      const profileImgIndex = (idCounter % 2) + 1;
+
       members.push({
         id: idCounter++,
         name: `${part.name.substring(0, 1)}단원${i + 1}`, // Dummy names
         part: part.name,
         role: role,
         resolution: resolutions[Math.floor(Math.random() * resolutions.length)],
-        image: `https://i.pravatar.cc/300?img=${(idCounter % 70) + 1}`
+        // Point to generated SVGs
+        image: `/img/profile_member_${profileImgIndex}.svg`
       });
     }
   });

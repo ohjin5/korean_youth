@@ -1,11 +1,11 @@
 import React from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, Bus, TrainFront, CarFront } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const Location: React.FC = () => {
   return (
     <section className="py-20 bg-white">
-      <div className="max-w-2xl mx-auto px-6">
+      <div className="max-w-4xl mx-auto px-6">
         <ScrollReveal>
           <div className="text-center mb-12">
             <span className="text-gold tracking-widest text-xs font-bold uppercase mb-2 block">Location</span>
@@ -34,7 +34,7 @@ const Location: React.FC = () => {
           </div>
 
           {/* Navigation Buttons */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-10">
              <button 
                 className="flex items-center justify-center gap-3 w-full py-4 bg-[#F2F4F7] text-slate-800 rounded-md hover:bg-slate-200 transition-colors"
                 onClick={() => window.open('https://map.kakao.com/link/search/천안시복합커뮤니티센터', '_blank')}
@@ -51,20 +51,49 @@ const Location: React.FC = () => {
              </button>
           </div>
 
-          <div className="mt-8 pt-8 border-t border-stone-100">
-            <h4 className="font-bold text-navy mb-4 flex items-center gap-2">
+          {/* Transportation Guide */}
+          <div className="border-t border-stone-100 pt-10">
+            <h4 className="font-bold text-navy mb-6 flex items-center gap-2 justify-center md:justify-start">
               <MapPin size={18} className="text-gold" />
-              대중교통 안내
+              교통편 안내
             </h4>
-            <div className="space-y-4 text-sm text-stone-600 font-light">
-               <div>
-                 <span className="font-semibold text-stone-800 block mb-1">KTX / 기차</span>
-                 <p>천안아산역 하차 후 택시 이동 (약 10분 소요)</p>
-               </div>
-               <div>
-                 <span className="font-semibold text-stone-800 block mb-1">버스</span>
-                 <p>천안시청 시의회 정류장 하차: 1, 3, 90, 990번</p>
-               </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Bus */}
+              <div className="bg-[#F9F9F7] p-6 rounded-xl border border-stone-200/60 flex flex-col items-center md:items-start text-center md:text-left hover:border-gold/30 transition-colors">
+                <div className="w-10 h-10 rounded-full bg-white border border-stone-200 flex items-center justify-center text-navy mb-3 shadow-sm">
+                  <Bus size={20} />
+                </div>
+                <span className="font-bold text-navy mb-1 text-sm">버스 이용 시</span>
+                <p className="text-sm text-stone-600 font-light leading-relaxed">
+                  천안버스터미널 <br className="hidden md:block" />
+                  <strong className="font-medium text-stone-800">90번 버스</strong> 이용
+                </p>
+              </div>
+
+              {/* Subway */}
+              <div className="bg-[#F9F9F7] p-6 rounded-xl border border-stone-200/60 flex flex-col items-center md:items-start text-center md:text-left hover:border-gold/30 transition-colors">
+                 <div className="w-10 h-10 rounded-full bg-white border border-stone-200 flex items-center justify-center text-navy mb-3 shadow-sm">
+                  <TrainFront size={20} />
+                </div>
+                <span className="font-bold text-navy mb-1 text-sm">지하철 이용 시</span>
+                <p className="text-sm text-stone-600 font-light leading-relaxed">
+                  1호선 천안역 하차 후 <br />
+                  천안역 서부광장 <strong className="font-medium text-stone-800">6번 버스</strong> 이용
+                </p>
+              </div>
+
+              {/* Car */}
+              <div className="bg-[#F9F9F7] p-6 rounded-xl border border-stone-200/60 flex flex-col items-center md:items-start text-center md:text-left hover:border-gold/30 transition-colors">
+                 <div className="w-10 h-10 rounded-full bg-white border border-stone-200 flex items-center justify-center text-navy mb-3 shadow-sm">
+                  <CarFront size={20} />
+                </div>
+                <span className="font-bold text-navy mb-1 text-sm">자차 이용 시</span>
+                <p className="text-sm text-stone-600 font-light leading-relaxed break-keep">
+                  천안IC → 삼성대로 → <br className="hidden md:block" />
+                  번영로 → 음봉로
+                </p>
+              </div>
             </div>
           </div>
         </ScrollReveal>

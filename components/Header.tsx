@@ -18,8 +18,9 @@ const Header: React.FC = () => {
         {/* Central Spotlight/Glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#1a233a] rounded-full blur-[100px] opacity-60" />
 
-        {/* Texture Overlay (Optional subtle noise) */}
-        <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] mix-blend-overlay"></div>
+        {/* Texture Overlay */}
+        {/* Changed to local SVG path */}
+        <div className="absolute inset-0 opacity-40 bg-[url('/img/bg_stardust.svg')] bg-cover mix-blend-screen"></div>
         
         {/* Decorative Corner: Top Left Branch/Cloud */}
         <svg className="absolute top-0 left-0 w-64 h-64 text-white/10 pointer-events-none transform -translate-x-10 -translate-y-10" viewBox="0 0 200 200" fill="currentColor">
