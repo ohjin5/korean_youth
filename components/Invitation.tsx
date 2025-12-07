@@ -40,7 +40,7 @@ const Invitation: React.FC = () => {
             <div className="flex flex-col items-center">
                <span className="text-stone-500 text-sm tracking-wide mb-2">천안시 청소년 복합커뮤니티센터 관장</span>
                <div className="flex items-baseline gap-2">
-                 <span className="text-[#1a233a] font-bold text-xl tracking-wider">윤 여 승</span>
+                 <span className="text-[#1a233a] font-bold text-xl tracking-wider">윤 여 숭</span>
                  <span className="text-stone-400 text-sm font-normal">올림</span>
                </div>
             </div>
