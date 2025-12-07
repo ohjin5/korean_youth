@@ -77,7 +77,7 @@ const Header: React.FC = () => {
         <div className="flex flex-col items-center gap-3 text-white/80 tracking-widest font-light text-sm md:text-base">
           <div className="flex items-center gap-2">
             <Calendar size={14} className="text-gold" />
-            <span>2025. 12. 13 (토) 오후 5시</span>
+            <span>2025. 12. 13. (토) 오후 5시</span>
           </div>
           <span className="w-8 h-px bg-white/20 my-1"></span>
           <span className="text-white/60">천안시청소년복합커뮤니티센터 대공연장</span>
