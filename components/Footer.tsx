@@ -17,7 +17,8 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-navy-deep text-hanji/60 py-12 px-6">
       <div className="max-w-xl mx-auto text-center">
-        <h3 className="text-lg font-bold text-white mb-6">천안청소년국악관현악단 & 천안시청소년복합커뮤니티센터</h3>
+        <h3 className="text-lg font-bold text-white mb-6">천안시청소년복합커뮤니티센터</h3>
+        <h3 className="text-lg font-bold text-white mb-6">천안청소년국악관현악단</h3>
         
         <div className="flex justify-center gap-6 mb-10">
            <a href="tel:041-557-0924" className="flex flex-col items-center gap-2 group cursor-pointer">
