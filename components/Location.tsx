@@ -44,11 +44,12 @@ const Location: React.FC = () => {
              </button>
              <button 
                 className="flex items-center justify-center gap-3 w-full py-4 bg-[#F2F4F7] text-slate-800 rounded-md hover:bg-slate-200 transition-colors"
-                onClick={() => window.location.href = 'tmap://search?name=천안시청소년복합커뮤니티센터'}
-             >
-                <div className="w-6 h-6 bg-red-600 rounded-md flex items-center justify-center text-[10px] font-bold text-white">T</div>
-                <span className="font-semibold">티맵</span>
-             </button>
+                onClick={() => window.open('https://map.naver.com/p/search/천안시청소년복합커뮤니티센터', '_blank')}
+            >
+            {/* 네이버는 초록색(#03C75A) 아이콘입니다 */}
+                <div className="w-6 h-6 bg-[#03C75A] rounded-md flex items-center justify-center text-[10px] font-bold text-white">N</div>
+                <span className="font-semibold">네이버 지도</span>
+              </button>
           </div>
 
           {/* Transportation Guide */}
