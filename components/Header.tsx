@@ -19,7 +19,6 @@ const Header: React.FC = () => {
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#1a233a] rounded-full blur-[100px] opacity-60" />
 
         {/* Texture Overlay */}
-        {/* Changed to local SVG path */}
         <div className="absolute inset-0 opacity-40 bg-[url('/img/bg_stardust.svg')] bg-cover mix-blend-screen"></div>
         
         {/* Decorative Corner: Top Left Branch/Cloud */}
@@ -85,6 +84,15 @@ const Header: React.FC = () => {
         </div>
       </div>
       
+      {/* 4. Bottom Logo (Wide Format) */}
+      <div className={`absolute bottom-[30px] left-1/2 -translate-x-1/2 z-30 transition-opacity duration-1000 delay-500 w-full flex justify-center ${loaded ? 'opacity-100' : 'opacity-0'}`}>
+        <img 
+          src="img/logo.png" 
+          alt="천안시청소년재단 천안시청소년복합커뮤니티센터 로고" 
+          className="header-logo w-auto max-w-[90%] h-auto opacity-90 hover:opacity-100 transition-opacity"
+        />
+      </div>
+
       {/* Bottom Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0B101A] to-transparent z-10 pointer-events-none"></div>
     </header>

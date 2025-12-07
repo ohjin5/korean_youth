@@ -1,157 +1,137 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ScrollReveal from './ScrollReveal';
-import { Member, membersData } from '../data/members';
-import { X, Quote } from 'lucide-react';
 
 const Members: React.FC = () => {
-  const [selectedMember, setSelectedMember] = useState<Member | null>(null);
+  // Data Definition
+  const conductor = "박상진";
 
-  // Define the order explicitly to match the requirement
-  const sortOrder = ['지휘자/지도위원', '가야금', '거문고', '대금/소금', '해금/아쟁', '타악'];
+  const instructors = [
+    { part: "가야금", name: "공채린" },
+    { part: "거문고", name: "김채운" },
+    { part: "해금", name: "조소연" },
+    { part: "아쟁", name: "김명신" },
+    { part: "대금", name: "오혁" },
+    { part: "타악", name: "정예빈" },
+    { part: "사물놀이", name: "장수영" },
+  ];
 
-  // Group members by part
-  const groupedMembers = membersData.reduce((acc, member) => {
-    if (!acc[member.part]) {
-      acc[member.part] = [];
+  const helpers = [
+    "작곡가 강동완",
+    "사회자 박문정"
+  ];
+
+  const memberTeams = [
+    {
+      part: "가야금",
+      names: ["김나루", "김야엘", "김지은", "박서윤", "박서현", "배서우", "배지원", "변하엘", "신예슬", "원혜인", "이예지", "이지수", "이채원", "임윤서", "정나윤", "채우리"]
+    },
+    {
+      part: "해금",
+      names: ["김예준", "김하율", "박서영", "윤채린", "이유신", "이채윤", "장재이", "정유안", "진나연", "최하은", "한가은", "현채이", "김하은", "신재원", "장재영"]
+    },
+    {
+      part: "대금",
+      names: ["엄동윤", "박준서", "박지언", "최원"]
+    },
+    {
+      part: "피리",
+      names: ["김예탁", "김채율", "김하진", "윤수인", "윤수현", "이아진", "장이현", "한유은", "고찬희"]
+    },
+    {
+      part: "거문고",
+      names: ["강석연", "고현", "김은서", "김윤서", "박서윤", "서지우", "윤이나", "이인준", "안명원"]
+    },
+    {
+      part: "아쟁",
+      names: ["김하윤", "김헌성"]
+    },
+    {
+      part: "타악",
+      names: ["김다윗", "김도운", "김지율", "문은서", "박세희", "박소율", "배성윤", "송은석", "윤혜나", "이예안", "정시연", "황서희"]
     }
-    acc[member.part].push(member);
-    return acc;
-  }, {} as Record<string, Member[]>);
-
-  const openModal = (member: Member) => {
-    setSelectedMember(member);
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-  };
-
-  const closeModal = () => {
-    setSelectedMember(null);
-    document.body.style.overflow = 'unset';
-  };
+  ];
 
   return (
-    <section className="py-20 bg-hanji relative">
+    <section className="py-24 bg-hanji relative">
       <div className="max-w-4xl mx-auto px-6">
+        
+        {/* Title Section */}
         <ScrollReveal>
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <span className="text-gold tracking-widest text-xs font-bold uppercase mb-2 block">Members</span>
-            <h2 className="text-3xl font-bold text-navy">공연진 소개</h2>
-            <p className="text-stone-500 mt-2 text-sm">천안청소년국악관현악단을 이끄는 주역들입니다.</p>
+            <h2 className="text-3xl font-bold text-navy mb-3">공연진 소개</h2>
+            <p className="text-stone-500 text-sm font-serif">천안청소년국악관현악단을 이끄는 주역들입니다.</p>
           </div>
         </ScrollReveal>
 
-        <div className="space-y-12">
-          {sortOrder.map((partName, groupIdx) => {
-            const members = groupedMembers[partName];
-            if (!members) return null;
+        {/* Conductor */}
+        <ScrollReveal delay={100}>
+          <div className="text-center mb-16">
+            <h3 className="text-gold font-bold text-lg mb-2 font-serif">지휘</h3>
+            <p className="text-4xl font-bold text-navy-deep">{conductor}</p>
+          </div>
+        </ScrollReveal>
 
-            return (
-              <ScrollReveal key={partName} delay={groupIdx * 100} threshold={0.1}>
-                <div className="relative">
-                  <h3 className="text-lg font-bold text-navy-deep mb-4 px-2 border-l-4 border-gold pl-3 flex items-center gap-2">
-                    {partName} 
-                    <span className="text-stone-400 text-xs font-normal bg-stone-100 px-2 py-0.5 rounded-full">{members.length}명</span>
-                  </h3>
-                  
-                  {/* Horizontal Scroll Container */}
-                  <div className="flex overflow-x-auto pb-6 gap-5 no-scrollbar snap-x px-2 overscroll-x-contain">
-                    {members.map((member) => (
-                      <button 
-                        key={member.id}
-                        onClick={() => openModal(member)}
-                        className="flex-shrink-0 w-24 flex flex-col items-center group snap-start focus:outline-none"
-                      >
-                        <div className={`w-20 h-20 rounded-full p-1 border transition-all duration-300 relative bg-white ${member.role === '지휘자' ? 'border-gold scale-105' : 'border-gold/30 group-hover:border-gold group-hover:scale-105'}`}>
-                          <img 
-                            src={member.image} 
-                            alt={member.name} 
-                            className="w-full h-full rounded-full object-cover filter grayscale group-hover:grayscale-0 transition-all"
-                          />
-                          {member.role === '수석' && (
-                             <span className="absolute -top-1 -right-1 bg-navy text-gold text-[10px] px-1.5 py-0.5 rounded-full shadow-sm z-10">수석</span>
-                          )}
-                          {member.role === '지휘자' && (
-                             <span className="absolute -top-1 -right-1 bg-gold text-white text-[10px] px-1.5 py-0.5 rounded-full shadow-sm z-10 font-bold">지휘</span>
-                          )}
-                           {member.role === '지도위원' && (
-                             <span className="absolute -top-1 -right-1 bg-stone-600 text-white text-[10px] px-1.5 py-0.5 rounded-full shadow-sm z-10">지도</span>
-                          )}
-                        </div>
-                        <span className={`mt-3 text-sm font-medium transition-colors ${member.role === '지휘자' ? 'text-gold font-bold' : 'text-navy-deep group-hover:text-gold'}`}>
-                          {member.name}
-                        </span>
-                        <span className="text-[10px] text-stone-400">{member.role}</span>
-                      </button>
-                    ))}
-                    {/* Padding for right side of scroll */}
-                    <div className="w-4 flex-shrink-0"></div>
+        {/* Instructors & Helpers Box */}
+        <ScrollReveal delay={200}>
+          <div className="bg-white/60 border border-stone-200 rounded-xl p-8 mb-16 shadow-sm">
+            <div className="mb-8">
+              <h3 className="text-center text-navy font-bold text-lg mb-6 pb-2 border-b border-stone-200 inline-block px-8 mx-auto block w-max">
+                지도강사
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                {instructors.map((inst, idx) => (
+                  <div key={idx} className="flex flex-col md:flex-row items-center justify-center gap-1 md:gap-2">
+                    <span className="text-stone-400 text-xs md:text-sm font-light">{inst.part}</span>
+                    <span className="text-navy-deep font-medium">{inst.name}</span>
                   </div>
-                </div>
-              </ScrollReveal>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Modal Overlay - z-[100] to cover sticky buttons */}
-      {selectedMember && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div 
-            className="absolute inset-0 bg-navy-deep/80 backdrop-blur-sm transition-opacity"
-            onClick={closeModal}
-          ></div>
-          
-          <div className="bg-hanji w-full max-w-sm rounded-lg shadow-2xl overflow-hidden relative z-10 animate-[fadeIn_0.3s_ease-out]">
-            <button 
-              onClick={closeModal}
-              className="absolute top-4 right-4 text-white drop-shadow-md hover:text-gold transition-colors z-20 bg-black/20 rounded-full p-1"
-            >
-              <X size={24} />
-            </button>
-
-            <div className="relative h-72 bg-stone-200">
-               <img 
-                 src={selectedMember.image} 
-                 alt={selectedMember.name} 
-                 className="w-full h-full object-cover"
-               />
-               <div className="absolute inset-0 bg-gradient-to-t from-navy-deep via-transparent to-transparent opacity-90"></div>
-               
-               <div className="absolute bottom-0 left-0 p-6 text-white w-full">
-                  <span className="bg-gold text-white text-xs px-2 py-1 rounded mb-2 inline-block font-semibold tracking-wider">
-                    {selectedMember.part}
-                  </span>
-                  <div className="flex items-end gap-2">
-                    <h3 className="text-3xl font-bold">{selectedMember.name}</h3>
-                    <span className="text-stone-300 text-sm mb-1.5">{selectedMember.role}</span>
-                  </div>
-               </div>
-            </div>
-
-            <div className="p-8 text-center bg-hanji">
-              <Quote className="text-gold/40 mx-auto mb-4 fill-current transform rotate-180" size={32} />
-              <p className="text-navy text-lg leading-relaxed font-serif break-keep font-medium">
-                "{selectedMember.resolution}"
-              </p>
-              <div className="mt-8">
-                <button 
-                  onClick={closeModal}
-                  className="w-full py-3 bg-navy text-white text-sm font-bold tracking-widest rounded hover:bg-gold transition-colors"
-                >
-                  닫기
-                </button>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
-      )}
 
-      {/* Animation keyframes for modal */}
-      <style>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: scale(0.95); }
-          to { opacity: 1; transform: scale(1); }
-        }
-      `}</style>
+            <div className="text-center">
+               <h3 className="text-navy font-bold text-sm mb-3">도움을 주신 분들</h3>
+               <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+                 {helpers.map((helper, idx) => (
+                   <span key={idx} className="text-stone-600 font-serif">{helper}</span>
+                 ))}
+               </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* Members List */}
+        <div className="space-y-12">
+          {memberTeams.map((team, idx) => (
+            <ScrollReveal key={team.part} delay={idx * 50 + 300}>
+              <div className="text-center">
+                <h3 className="text-xl font-bold text-navy mb-6 font-serif relative inline-block">
+                  <span className="relative z-10">{team.part}</span>
+                  <span className="absolute bottom-1 left-0 right-0 h-2 bg-gold/10 -z-0"></span>
+                </h3>
+                
+                <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-y-4 gap-x-2">
+                  {team.names.map((name, nameIdx) => (
+                    <div key={nameIdx} className="text-stone-700 font-serif text-base hover:text-gold transition-colors duration-300">
+                      {name}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        {/* Decor */}
+        <div className="mt-20 flex justify-center opacity-30">
+           <svg width="40" height="10" viewBox="0 0 40 10">
+             <circle cx="5" cy="5" r="2" fill="#a88d57" />
+             <circle cx="20" cy="5" r="2" fill="#a88d57" />
+             <circle cx="35" cy="5" r="2" fill="#a88d57" />
+           </svg>
+        </div>
+
+      </div>
     </section>
   );
 };
