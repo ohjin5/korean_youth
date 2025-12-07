@@ -89,7 +89,7 @@ const Header: React.FC = () => {
         <img 
           src="img/logo.png" 
           alt="천안시청소년재단 천안시청소년복합커뮤니티센터 로고" 
-          className="header-logo w-auto max-w-[90%] h-auto opacity-90 hover:opacity-100 transition-opacity"
+          className="header-logo w-auto max-w-[50%] h-auto opacity-90 hover:opacity-100 transition-opacity"
         />
       </div>
 
