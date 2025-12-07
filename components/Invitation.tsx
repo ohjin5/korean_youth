@@ -24,7 +24,8 @@ const Invitation: React.FC = () => {
           
           <div className="space-y-8 text-[#555] text-base md:text-lg leading-[2.3] font-serif font-light break-keep">
             <p>
-              이번 연주회는 청소년들이 국악의 아름다움을 배우며<br />
+              이번 연주회는 청소년들이<br /> 
+              국악의 아름다움을 배우며<br />
               한 해 동안 갈고닦은 열정과 성장을 담아<br />
               선보이는 첫 무대입니다.
             </p>
