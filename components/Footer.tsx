@@ -39,7 +39,10 @@ const Footer: React.FC = () => {
             COPYRIGHT © 천안시청소년복합커뮤니티센터. ALL RIGHTS RESERVED.
           </p>
           <p className="text-[10px] text-hanji/30 font-light">
-            BGM: 임다솔 - 우리네 소리를 듣다 (CC BY)
+            BGM: 윤영현 - Beautiful Korea(뷰티플 코리아) (CC BY)
+          </p>
+          <p className="text-[10px] text-hanji/30 font-light">
+            Design & Dev by KOJ & 천안시청소년복합커뮤니티센터 교육사업팀
           </p>
         </div>
       </div>
