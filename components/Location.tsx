@@ -44,7 +44,7 @@ const Location: React.FC = () => {
              </button>
              <button 
                 className="flex items-center justify-center gap-3 w-full py-4 bg-[#F2F4F7] text-slate-800 rounded-md hover:bg-slate-200 transition-colors"
-                onClick={() => window.open('https://tmap.co.kr/', '_blank')}
+                onClick={() => window.location.href = 'tmap://search?name=천안시청소년복합커뮤니티센터'}
              >
                 <div className="w-6 h-6 bg-red-600 rounded-md flex items-center justify-center text-[10px] font-bold text-white">T</div>
                 <span className="font-semibold">티맵</span>
