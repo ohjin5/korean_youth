@@ -114,7 +114,7 @@ const Gallery: React.FC = () => {
             <span className="text-gold tracking-widest text-xs font-bold uppercase mb-2 block">Gallery</span>
             <h2 className="text-3xl font-bold text-navy">갤러리</h2>
             <p className="text-stone-500 mt-2 text-sm font-light">
-              무대를 위해 흘린 땀방울, 그 빛나는 순간들
+              공연을 위해 흘린 땀방울, 그 빛나는 순간들
             </p>
           </div>
         </ScrollReveal>
