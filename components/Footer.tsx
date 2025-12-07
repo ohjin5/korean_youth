@@ -24,8 +24,8 @@ const Footer: React.FC = () => {
              <div className="w-12 h-12 rounded-full border border-hanji/20 flex items-center justify-center group-hover:bg-gold group-hover:border-gold group-hover:text-navy transition-all">
                <Phone size={20} />
              </div>
-             <span className="text-xs">교육사업팀 윤하나</span>
-             <span className="text-xs">문의: 041-557-0924</span>
+             <span className="text-xs">문의: 교육사업팀</span>
+             <span className="text-xs">대표번호: 041-557-0924</span>
            </a>
            <button onClick={handleShare} className="flex flex-col items-center gap-2 group cursor-pointer">
              <div className="w-12 h-12 rounded-full border border-hanji/20 flex items-center justify-center group-hover:bg-gold group-hover:border-gold group-hover:text-navy transition-all">
