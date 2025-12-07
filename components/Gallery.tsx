@@ -138,7 +138,7 @@ const Gallery: React.FC = () => {
 
           <div className="mt-6 text-center">
              <p className="text-xs text-stone-400 font-light tracking-wider">
-               * 사진은 랜덤으로 변경됩니다.
+             
              </p>
           </div>
         </ScrollReveal>
