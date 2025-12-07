@@ -19,12 +19,12 @@ const Footer: React.FC = () => {
       <div className="max-w-xl mx-auto text-center">
         <h3 className="text-lg font-bold text-white mb-6">천안청소년국악관현악단</h3>
         
-        <div className="flex justify-center gap-6 mb-8">
-           <a href="tel:010-1234-5678" className="flex flex-col items-center gap-2 group cursor-pointer">
+        <div className="flex justify-center gap-6 mb-10">
+           <a href="tel:041-557-0924" className="flex flex-col items-center gap-2 group cursor-pointer">
              <div className="w-12 h-12 rounded-full border border-hanji/20 flex items-center justify-center group-hover:bg-gold group-hover:border-gold group-hover:text-navy transition-all">
                <Phone size={20} />
              </div>
-             <span className="text-xs">문의하기</span>
+             <span className="text-xs">문의: 041-557-0924</span>
            </a>
            <button onClick={handleShare} className="flex flex-col items-center gap-2 group cursor-pointer">
              <div className="w-12 h-12 rounded-full border border-hanji/20 flex items-center justify-center group-hover:bg-gold group-hover:border-gold group-hover:text-navy transition-all">
@@ -34,9 +34,14 @@ const Footer: React.FC = () => {
            </button>
         </div>
 
-        <p className="text-xs font-light">
-          Copyright © 2024 Cheonan Youth Traditional Music Orchestra. All rights reserved.
-        </p>
+        <div className="space-y-2 border-t border-white/10 pt-8">
+          <p className="text-[10px] md:text-xs font-light tracking-wide text-hanji/40 uppercase">
+            COPYRIGHT © 천안시청소년복합커뮤니티센터. ALL RIGHTS RESERVED.
+          </p>
+          <p className="text-[10px] text-hanji/30 font-light">
+            BGM: 임다솔 - 우리네 소리를 듣다 (CC BY)
+          </p>
+        </div>
       </div>
     </footer>
   );
