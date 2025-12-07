@@ -10,7 +10,7 @@ const Location: React.FC = () => {
           <div className="text-center mb-12">
             <span className="text-gold tracking-widest text-xs font-bold uppercase mb-2 block">Location</span>
             <h2 className="text-3xl font-bold text-navy mb-4">오시는 길</h2>
-            <p className="text-stone-600 text-lg font-semibold">천안시복합커뮤니티센터</p>
+            <p className="text-stone-600 text-lg font-semibold">천안시청소년복합커뮤니티센터</p>
             <p className="text-stone-400 text-sm mt-1">충청남도 천안시 서북구 불당15길 11 (불당동)</p>
           </div>
         </ScrollReveal>
