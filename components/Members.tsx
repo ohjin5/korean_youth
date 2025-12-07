@@ -31,7 +31,7 @@ const Members: React.FC = () => {
     },
     {
       part: "대금",
-      names: ["엄동윤", "박준서", "박지언", "최원"]
+      names: ["염동윤", "박준서", "박지언", "최원"]
     },
     {
       part: "피리",
@@ -43,7 +43,7 @@ const Members: React.FC = () => {
     },
     {
       part: "아쟁",
-      names: ["김하윤", "김헌성"]
+      names: ["김하윤", "김현성"]
     },
     {
       part: "타악",
