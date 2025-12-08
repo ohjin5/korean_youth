@@ -9,15 +9,6 @@ const Footer: React.FC = () => {
         text: '2025년 12월 13일 (토) 오후 5시, 천안시청소년복합커뮤니티센터 대공연장. 귀한 발걸음을 초대합니다.',
         url: window.location.href,
       }).catch(console.error);
-
-    } else {
-
-      alert('링크가 복사되었습니다.');
-
-    }
-
-  };
-      }).catch(console.error);
     } else {
       alert('링크가 복사되었습니다.');
     }
