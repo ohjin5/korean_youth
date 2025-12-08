@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   const handleShare = async () => {
     const shareData = {
       title: '천안청소년국악관현악단 창단연주회',
-      text: '2025년 12월 13일 (토) 오후 5시, 천안시청소년복합커뮤니티센터 대공연장. 귀한 발걸음을 초대합니다.\n', // 줄바꿈 추가
+      text: '2025년 12월 13일 (토) 오후 5시, 천안시청소년복합커뮤니티센터 대공연장. 귀한 발걸음을 초대합니다.', // 줄바꿈 추가
       url: window.location.href,
     };
 
