@@ -6,6 +6,16 @@ const Footer: React.FC = () => {
     if (navigator.share) {
       navigator.share({
         title: '천안청소년국악관현악단 창단연주회',
+        url: window.location.href,
+      }).catch(console.error);
+
+    } else {
+
+      alert('링크가 복사되었습니다.');
+
+    }
+
+  };
       }).catch(console.error);
     } else {
       alert('링크가 복사되었습니다.');
