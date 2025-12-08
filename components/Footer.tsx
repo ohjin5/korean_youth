@@ -4,11 +4,7 @@ import { Phone, Share2 } from 'lucide-react';
 const Footer: React.FC = () => {
   const handleShare = async () => {
     const shareData = {
-      title: '천안청소년국악관현악단 창단연주회',
-      // 1. text에 url을 직접 합칩니다.
-      text: '2025년 12월 13일 (토) 오후 5시, 천안시청소년복합커뮤니티센터 대공연장. 귀한 발걸음을 초대합니다. ' + window.location.href,
-      // 2. url 속성은 제거합니다. (이게 있으면 카카오톡이 또 분리해서 처리하려다 버그가 생김)
-      // url: window.location.href, 
+      url: window.location.href, 
     };
 
     if (navigator.share) {
