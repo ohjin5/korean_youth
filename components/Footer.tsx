@@ -2,15 +2,32 @@ import React from 'react';
 import { Phone, Share2 } from 'lucide-react';
 
 const Footer: React.FC = () => {
-  const handleShare = () => {
+  const handleShare = async () => {
+    const shareData = {
+      title: '천안청소년국악관현악단 창단연주회',
+      text: '2025년 12월 13일 (토) 오후 5시, 천안시청소년복합커뮤니티센터 대공연장. 귀한 발걸음을 초대합니다.\n', // 줄바꿈 추가
+      url: window.location.href,
+    };
+
+    // 1. 네비게이터 공유 기능 시도
     if (navigator.share) {
-      navigator.share({
-        title: '천안청소년국악관현악단 창단연주회',
-        text: '2025년 12월 13일 (토) 오후 5시, 천안시청소년복합커뮤니티센터 대공연장. 귀한 발걸음을 초대합니다.',
-        url: window.location.href,
-      }).catch(console.error);
-    } else {
-      alert('링크가 복사되었습니다.');
+      try {
+        await navigator.share(shareData);
+      } catch (error) {
+        // 사용자가 공유 창을 닫거나 취소한 경우는 에러로 보지 않음
+        if (error.name !== 'AbortError') {
+          console.error('공유 실패:', error);
+        }
+      }
+    } 
+    // 2. 공유 기능 미지원 시 클립보드 복사
+    else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert('링크가 복사되었습니다.');
+      } catch (err) {
+        alert('링크 복사에 실패했습니다. URL을 직접 복사해주세요.');
+      }
     }
   };
 
